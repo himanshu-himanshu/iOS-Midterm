@@ -20,7 +20,7 @@ class StartScene: SKScene
         
         // add the second ocean to the scene
         ocean2 = Ocean()
-        ocean2?.position.y = -627
+        ocean2?.position.x = -627
         addChild(ocean2!)
     }
     

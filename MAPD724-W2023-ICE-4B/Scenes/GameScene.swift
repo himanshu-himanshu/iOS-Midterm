@@ -21,9 +21,9 @@ class GameScene: SKScene
         ocean1?.Reset()
         addChild(ocean1!)
         
-        // add the second ocean to the scene
+        //add the second ocean to the scene
         ocean2 = Ocean()
-        ocean2?.position.y = -627
+        ocean2?.position.x = -627
         addChild(ocean2!)
         
         // add the player to the Scene
@@ -70,18 +70,18 @@ class GameScene: SKScene
     
     func touchDown(atPoint pos : CGPoint)
     {
-        player?.TouchMove(newPos: CGPoint(x: pos.x, y: -640))
+        player?.TouchMove(newPos: CGPoint(x: -640, y: pos.y))
     }
     
     func touchMoved(toPoint pos : CGPoint)
     {
-        player?.TouchMove(newPos: CGPoint(x: pos.x, y: -640))
+        player?.TouchMove(newPos: CGPoint(x: -640, y: pos.y))
         
     }
     
     func touchUp(atPoint pos : CGPoint)
     {
-        player?.TouchMove(newPos: CGPoint(x: pos.x, y: -640))
+        player?.TouchMove(newPos: CGPoint(x: -640, y: pos.y))
         
     }
     
