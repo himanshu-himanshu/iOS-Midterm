@@ -58,20 +58,41 @@ class GameViewController: UIViewController {
     
     func presentStartScene()
     {
-        ScoreLabel.isHidden = true
-        LivesLabel.isHidden = true
-        StartLabel.isHidden = false
-        StartButton.isHidden = false
-        setScene(sceneName: "StartScene")
+//        ScoreLabel.isHidden = true
+//        LivesLabel.isHidden = true
+//        StartLabel.isHidden = false
+//        StartButton.isHidden = false
+//        setScene(sceneName: "GameScene")
+            ScoreLabel.isHidden = false
+            LivesLabel.isHidden = false
+            StartLabel.isHidden = true
+            StartButton.isHidden = true
+            // Initialize the Lives and Score
+            ScoreManager.Score = 0
+            ScoreManager.Lives = 5
+            updateLivesLabel()
+            updateScoreLabel()
+            setScene(sceneName: "GameScene")
     }
     
     func presentEndScene()
     {
-        ScoreLabel.isHidden = true
-        LivesLabel.isHidden = true
-        RestartButton.isHidden = false
-        EndLabel.isHidden = false
-        setScene(sceneName: "EndScene")
+//        ScoreLabel.isHidden = true
+//        LivesLabel.isHidden = true
+//        RestartButton.isHidden = false
+//        EndLabel.isHidden = false
+//        setScene(sceneName: "GameScene")
+        
+        ScoreLabel.isHidden = false
+        LivesLabel.isHidden = false
+        StartLabel.isHidden = true
+        StartButton.isHidden = true
+        // Initialize the Lives and Score
+        ScoreManager.Score = 0
+        ScoreManager.Lives = 5
+        updateLivesLabel()
+        updateScoreLabel()
+        setScene(sceneName: "GameScene")
     }
     
     @IBAction func StartButton_Pressed(_ sender: UIButton)
