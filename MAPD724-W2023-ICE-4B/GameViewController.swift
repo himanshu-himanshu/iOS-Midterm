@@ -14,8 +14,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var EndLabel: UILabel!
     @IBOutlet weak var RestartButton: UIButton!
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         presentStartScene()
@@ -23,8 +22,7 @@ class GameViewController: UIViewController {
         CollisionManager.gameViewController = self
     }
 
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask
-    {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .allButUpsideDown
     }
 
@@ -32,18 +30,15 @@ class GameViewController: UIViewController {
         return true
     }
     
-    func updateLivesLabel()
-    {
+    func updateLivesLabel() {
         LivesLabel.text = "Lives: \(ScoreManager.Lives)"
     }
     
-    func updateScoreLabel()
-    {
+    func updateScoreLabel() {
         ScoreLabel.text = "Score: \(ScoreManager.Score)"
     }
     
-    func setScene(sceneName: String) -> Void
-    {
+    func setScene(sceneName: String) -> Void {
         currentScene = GKScene(fileNamed: sceneName)
         if let scene = currentScene!.rootNode as! SKScene?
         {
@@ -56,33 +51,23 @@ class GameViewController: UIViewController {
         }
     }
     
-    func presentStartScene()
-    {
-//        ScoreLabel.isHidden = true
-//        LivesLabel.isHidden = true
-//        StartLabel.isHidden = false
-//        StartButton.isHidden = false
-//        setScene(sceneName: "GameScene")
-            ScoreLabel.isHidden = false
-            LivesLabel.isHidden = false
-            StartLabel.isHidden = true
-            StartButton.isHidden = true
-            // Initialize the Lives and Score
-            ScoreManager.Score = 0
-            ScoreManager.Lives = 5
-            updateLivesLabel()
-            updateScoreLabel()
-            setScene(sceneName: "GameScene")
+    func presentStartScene() {
+        ScoreLabel.isHidden = true
+        LivesLabel.isHidden = true
+        StartLabel.isHidden = false
+        StartButton.isHidden = false
+        setScene(sceneName: "StartScene")
     }
     
-    func presentEndScene()
-    {
-//        ScoreLabel.isHidden = true
-//        LivesLabel.isHidden = true
-//        RestartButton.isHidden = false
-//        EndLabel.isHidden = false
-//        setScene(sceneName: "GameScene")
-        
+    func presentEndScene() {
+        ScoreLabel.isHidden = true
+        LivesLabel.isHidden = true
+        RestartButton.isHidden = false
+        EndLabel.isHidden = false
+        setScene(sceneName: "EndScene")
+    }
+    
+    @IBAction func StartButton_Pressed(_ sender: UIButton) {
         ScoreLabel.isHidden = false
         LivesLabel.isHidden = false
         StartLabel.isHidden = true
@@ -95,22 +80,7 @@ class GameViewController: UIViewController {
         setScene(sceneName: "GameScene")
     }
     
-    @IBAction func StartButton_Pressed(_ sender: UIButton)
-    {
-        ScoreLabel.isHidden = false
-        LivesLabel.isHidden = false
-        StartLabel.isHidden = true
-        StartButton.isHidden = true
-        // Initialize the Lives and Score
-        ScoreManager.Score = 0
-        ScoreManager.Lives = 5
-        updateLivesLabel()
-        updateScoreLabel()
-        setScene(sceneName: "GameScene")
-    }
-    
-    @IBAction func RestartButton_Pressed(_ sender: UIButton)
-    {
+    @IBAction func RestartButton_Pressed(_ sender: UIButton) {
         ScoreLabel.isHidden = false
         LivesLabel.isHidden = false
         RestartButton.isHidden = true
@@ -123,6 +93,4 @@ class GameViewController: UIViewController {
         setScene(sceneName: "GameScene")
         
     }
-    
-    
 }

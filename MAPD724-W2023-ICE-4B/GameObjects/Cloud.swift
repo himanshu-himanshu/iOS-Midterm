@@ -1,11 +1,10 @@
 import GameplayKit
 import SpriteKit
 
-class Cloud : GameObject
-{
+class Cloud : GameObject {
+    
     // initializer / constructor
-    init()
-    {
+    init() {
         super.init(imageString: "cloud", initialScale: 0.5)
         Start()
     }
@@ -15,30 +14,25 @@ class Cloud : GameObject
     }
     
     // LifeCycle Functions
-    
-    override func Start()
-    {
+
+    override func Start() {
         zPosition = Layer.cloud.rawValue
         alpha = 0.5 // 50% transparent
         Reset()
     }
     
-    override func Update()
-    {
+    override func Update() {
         Move()
         CheckBounds()
     }
     
-    override func CheckBounds()
-    {
-        if(position.x <= -902)
-        {
+    override func CheckBounds() {
+        if(position.x <= -902) {
             Reset()
         }
     }
     
-    override func Reset()
-    {
+    override func Reset() {
         // randomize the vertical speed: 5 to 10
         verticalSpeed = CGFloat((randomSource?.nextUniform())! * 5.0) + 5.0
         
@@ -57,8 +51,7 @@ class Cloud : GameObject
     }
     
     // public method
-    func Move()
-    {
+    func Move() {
         position.y -= horizontalSpeed!
         position.x -= verticalSpeed!
     }

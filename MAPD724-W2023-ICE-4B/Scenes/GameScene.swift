@@ -3,8 +3,8 @@ import GameplayKit
 import AVFoundation
 import UIKit
 
-class GameScene: SKScene
-{
+class GameScene: SKScene {
+    
     // instance variables
     var ocean1: Ocean?
     var ocean2: Ocean?
@@ -12,8 +12,7 @@ class GameScene: SKScene
     var island: Island?
     var clouds : [Cloud] = []
     
-    override func sceneDidLoad()
-    {
+    override func sceneDidLoad() {
         name = "GAME"
         
         // add the first ocean to the Scene
@@ -34,9 +33,8 @@ class GameScene: SKScene
         island = Island()
         addChild(island!)
         
-        // add 3 clouds to the Scene
-        for _ in 0...2
-        {
+        // add 2 clouds to the Scene
+        for _ in 0...1 {
             let cloud = Cloud()
             clouds.append(cloud)
             addChild(cloud)
@@ -48,50 +46,40 @@ class GameScene: SKScene
         engineSound.autoplayLooped = true
         engineSound.run(SKAction.changeVolume(to: 0.5, duration: 0))
 
-        
-        
         // preload / prewarm impulse sounds
-        do
-        {
+        do {
             let sounds: [String] = ["thunder", "yay"]
-            for sound in sounds
-            {
+            for sound in sounds {
                 let path: String = Bundle.main.path(forResource: sound, ofType: "mp3")!
                 let url:URL = URL(fileURLWithPath: path)
                 let avPlayer: AVAudioPlayer = try AVAudioPlayer(contentsOf: url)
                 avPlayer.prepareToPlay()
             }
         }
-        catch
-        {
+        catch {
             
         }
     }
     
-    func touchDown(atPoint pos : CGPoint)
-    {
+    func touchDown(atPoint pos : CGPoint) {
         player?.TouchMove(newPos: CGPoint(x: -320, y: pos.y))
     }
     
-    func touchMoved(toPoint pos : CGPoint)
-    {
+    func touchMoved(toPoint pos : CGPoint) {
         player?.TouchMove(newPos: CGPoint(x: -320, y: pos.y))
         
     }
     
-    func touchUp(atPoint pos : CGPoint)
-    {
+    func touchUp(atPoint pos : CGPoint) {
         player?.TouchMove(newPos: CGPoint(x: -320, y: pos.y))
         
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
     }
     
@@ -104,8 +92,7 @@ class GameScene: SKScene
     }
     
     
-    override func update(_ currentTime: TimeInterval)
-    {
+    override func update(_ currentTime: TimeInterval) {
         ocean1?.Update()
         ocean2?.Update()
         player?.Update()
@@ -114,8 +101,7 @@ class GameScene: SKScene
         CollisionManager.SquaredRadiusCheck(scene: self, object1: player!, object2: island!)
         
         // update each cloud in the clouds array
-        for cloud in clouds
-        {
+        for cloud in clouds {
             cloud.Update()
             CollisionManager.SquaredRadiusCheck(scene: self, object1: player!, object2: cloud)
         }

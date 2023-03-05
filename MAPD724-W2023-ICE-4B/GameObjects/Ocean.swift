@@ -1,11 +1,9 @@
 import GameplayKit
 import SpriteKit
 
-class Ocean : GameObject
-{
+class Ocean : GameObject {
     // constructor / initializer
-    init()
-    {
+    init() {
         super.init(imageString: "ocean2", initialScale: 2.0)
         Start()
     }
@@ -14,34 +12,28 @@ class Ocean : GameObject
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func Start()
-    {
+    override func Start() {
         zPosition = Layer.ocean.rawValue
         //zRotation = Double.pi / 2
         verticalSpeed = 5.0
     }
     
-    override func Update()
-    {
+    override func Update() {
         Move()
         CheckBounds()
     }
     
-    override func CheckBounds()
-    {
-        if(position.x <= -2253)
-        {
+    override func CheckBounds() {
+        if(position.x <= -2253) {
             Reset()
         }
     }
     
-    override func Reset()
-    {
+    override func Reset() {
         position.x = 2253
     }
     
-    func Move()
-    {
+    func Move() {
         position.x -= verticalSpeed!
     }
 }

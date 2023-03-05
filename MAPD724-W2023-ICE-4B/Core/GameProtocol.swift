@@ -1,5 +1,4 @@
-protocol GameProtocol
-{
+protocol GameProtocol {
     // Initialization
     func Start()
     
