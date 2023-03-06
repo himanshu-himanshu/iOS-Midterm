@@ -1,3 +1,13 @@
+//  File Name: StartScene
+
+//  Author: Himanshu (301296001)
+//  Subject: MAPD724 Advanced iOS Development
+//  Assignment: Midterm Exam
+
+//  Task: Enable Mail Pilot in landscape mode.
+
+//  Date modified: 04/03/2023
+
 import SpriteKit
 import GameplayKit
 import AVFoundation

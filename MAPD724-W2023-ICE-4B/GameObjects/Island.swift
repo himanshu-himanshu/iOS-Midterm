@@ -1,3 +1,13 @@
+//  File Name: Island
+
+//  Author: Himanshu (301296001)
+//  Subject: MAPD724 Advanced iOS Development
+//  Assignment: Midterm Exam
+
+//  Task: Enable Mail Pilot in landscape mode.
+
+//  Date modified: 04/03/2023
+
 import GameplayKit
 import SpriteKit
 
@@ -33,6 +43,7 @@ class Island : GameObject {
     
     override func Reset() {
         position.x = 876
+        
         // get a pseudo random number
         let randomX:Int = (randomSource?.nextInt(upperBound: 626))! - 313
         position.y = CGFloat(randomX)

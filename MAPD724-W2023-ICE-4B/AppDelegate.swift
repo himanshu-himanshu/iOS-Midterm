@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  MAPD724-W2023-ICE-4B
-//
-//  Created by Tom Tsiliopoulos on 2023-02-08.
-//
-
 import UIKit
 
 @main

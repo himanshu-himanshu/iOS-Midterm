@@ -1,8 +1,17 @@
+//  File Name: GameObject
+
+//  Author: Himanshu (301296001)
+//  Subject: MAPD724 Advanced iOS Development
+//  Assignment: Midterm Exam
+
+//  Task: Enable Mail Pilot in landscape mode.
+
+//  Date modified: 04/03/2023
+
 import GameplayKit
 import SpriteKit
 
-class GameObject : SKSpriteNode, GameProtocol
-{
+class GameObject : SKSpriteNode, GameProtocol {
     // public instance members
     var horizontalSpeed: CGFloat?
     var verticalSpeed: CGFloat?
@@ -16,8 +25,7 @@ class GameObject : SKSpriteNode, GameProtocol
     var randomDist: GKRandomDistribution?
     
     // Constructor / Initializer
-    init(imageString: String, initialScale: CGFloat)
-    {
+    init(imageString: String, initialScale: CGFloat) {
         // initialize the game object with an image
         let texture = SKTexture(imageNamed: imageString)
         let color = UIColor.clear
@@ -35,29 +43,16 @@ class GameObject : SKSpriteNode, GameProtocol
         randomSource = GKARC4RandomSource()
     }
     
-    required init?(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     // LifeCycle Functions
-    func Start()
-    {
-        
-    }
+    func Start() {}
     
-    func Update()
-    {
-        
-    }
+    func Update() {}
     
-    func CheckBounds()
-    {
-        
-    }
+    func CheckBounds() {}
     
-    func Reset()
-    {
-        
-    }
+    func Reset() {}
 }

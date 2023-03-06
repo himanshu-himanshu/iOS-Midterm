@@ -1,3 +1,13 @@
+//  File Name: GameScene
+
+//  Author: Himanshu (301296001)
+//  Subject: MAPD724 Advanced iOS Development
+//  Assignment: Midterm Exam
+
+//  Task: Enable Mail Pilot in landscape mode.
+
+//  Date modified: 04/03/2023
+
 import SpriteKit
 import GameplayKit
 import AVFoundation
@@ -33,7 +43,7 @@ class GameScene: SKScene {
         island = Island()
         addChild(island!)
         
-        // add 2 clouds to the Scene
+        // Add 2 clouds to the scene
         for _ in 0...1 {
             let cloud = Cloud()
             clouds.append(cloud)
