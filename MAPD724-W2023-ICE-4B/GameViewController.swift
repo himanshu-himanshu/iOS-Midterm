@@ -33,6 +33,7 @@ class GameViewController: UIViewController {
         CollisionManager.gameViewController = self
     }
 
+    /** Changes the Orientation to landscape mode */
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape // Enable landscape mode
     }
